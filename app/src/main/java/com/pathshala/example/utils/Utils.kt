@@ -1,6 +1,5 @@
-package com.assignment.utils
+package com.pathshala.example.utils
 
-import android.Manifest
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Context
@@ -17,10 +16,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.assignment.rxjavakotlinway.R
-import com.assignment.rxjavakotlinway.app.RxJavaKotlinWayApp
+import com.assignment.rxjavakotlinway.app.ExampleApp
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
+import com.pathshala.example.R
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -88,7 +87,7 @@ object Utils {
     fun showToastMessage(strMessage: String?, length: Int = Toast.LENGTH_SHORT) {
         if (!TextUtils.isEmpty(strMessage)) {
             sToast?.cancel()
-            sToast = Toast.makeText(RxJavaKotlinWayApp.instance, strMessage, Toast.LENGTH_SHORT)
+            sToast = Toast.makeText(ExampleApp.instance, strMessage, Toast.LENGTH_SHORT)
             sToast?.show()
         }
     }

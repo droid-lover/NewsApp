@@ -26,7 +26,7 @@ object ApiClient {
         get() {
             if (retrofit == null) {
                 retrofit = Retrofit.Builder()
-                        .baseUrl(Api.BASE_URL_MOVIES)
+                        .baseUrl(Api.BASE_URL1)
                         .client(okHttpClient)
                         .addConverterFactory(GsonConverterFactory.create())
                         .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
@@ -54,8 +54,6 @@ object ApiClient {
             val request = original.newBuilder().apply {
                 header("client_version", "CLIENT_VERSION")
                 header("client_name", "CLIENT_NAME")
-                header("x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com")
-                header("x-rapidapi-key", "mCwP32PFxUmshb1OwysSpUByMbXWp1QPsCZjsnW4JXJ5AA8zjn")
                 method(original.method(), original.body())
             }.build()
             chain.proceed(request)

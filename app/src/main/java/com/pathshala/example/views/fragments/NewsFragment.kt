@@ -8,46 +8,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
-
-import com.assignment.rxjavakotlinway.viewmodels.ExampleViewModel
 import com.google.gson.Gson
 import com.pathshala.example.R
+import com.pathshala.example.models.NewsHeadlines
+import com.pathshala.example.viewmodels.NewsViewModel
+import com.assignment.rxjavakotlinway.utils.Result
 
-//Free API used from - https://gorest.co.in/
-// username - SuperHotFire
-// password - mnbvcxz
-/**
- * Garage Fragment
- */
-class GarageFragment : Fragment() {
+class NewsFragment : Fragment() {
 
-    private val offersViewModel by lazy {
-        ViewModelProviders.of(this).get(ExampleViewModel::class.java)
-    }
+    private val newsViewModel by lazy { ViewModelProviders.of(this).get(NewsViewModel::class.java) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_main, container, false)
+        return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeViewModelChanges()
-        offersViewModel.getPopularMovies()
-//        offersViewModel.getTopRatedMovies()
+        newsViewModel.getNewsHeadlines(activity!!)
     }
 
     private fun observeViewModelChanges() {
-        offersViewModel.popularMovies.observe(this, androidx.lifecycle.Observer {
+        newsViewModel.newsHeadlines.observe(this, androidx.lifecycle.Observer {
             when (it) {
-                is com.assignment.rxjavakotlinway.utils.Result.Success<String> -> {
+                is Result.Success<NewsHeadlines> -> {
                     Log.d("ComingHere", "InsideApiSuccess ${Gson().toJson(it.data)}")
                 }
-                is com.assignment.rxjavakotlinway.utils.Result.Failure -> {
-                    Log.d("ComingHere", "InsideApiFailure")
+                is Result.Failure -> {
+                    Log.d("ComingHere", "InsideApiFailure ${it.throwable.localizedMessage}")
                 }
             }
         })

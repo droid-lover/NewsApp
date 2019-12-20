@@ -1,5 +1,6 @@
 package com.assignment
 
+import com.pathshala.example.models.NewsHeadlines
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,17 +11,11 @@ import retrofit2.http.Query
 
 interface APIs {
 
-    //BASE_URL_MOVIES
-    @GET("movie/popular")
-    fun getPopularMovies(@Query("api_key") apiKey: String,
-                         @Query("language") language: String,
-                         @Query("page") page: Int): Single<String>
+    @GET("v2/top-headlines")
+    fun getNewsHeadlines(
+        @Query("country") country: String,
+        @Query("apiKey") apiKey: String
+    ): Single<NewsHeadlines>
 
-    @GET("movie/top_rated")
-    fun getTopRatedMovies(@Query("api_key") apiKey: String,
-                          @Query("language") language: String,
-                          @Query("page") page: Int): Single<String>
-
-//append urls to this http://image.tmdb.org/t/p/w185/{URL}
 
 }
