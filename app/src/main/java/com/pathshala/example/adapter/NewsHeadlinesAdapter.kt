@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.core.view.marginTop
 import com.google.gson.Gson
 
 import com.pathshala.example.R
@@ -52,7 +54,6 @@ class NewsHeadlinesAdapter(private val context: Context, private val newsHealine
             article.urlToImage?.also { ivNewsCover.setImageURI(it) }
             article.description?.also { tvNewsDescription.text = it }
             article.publishedAt?.also { tvPublishedDate.text = getDayFromDate(it) }
-
         }
     }
 

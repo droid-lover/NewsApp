@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/cvContainer"
-    android:layout_marginBottom="12dp"
-    android:layout_height="280dp">
+    android:layout_width="match_parent"
+    android:layout_height="280dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -35,16 +36,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:fontFamily="@font/clear_sans_regular"
-            android:padding="8dp"
             android:hint="The magazine, founded by Billy Graham, has only a small following among Christian voters."
+            android:padding="8dp"
             android:textColor="@color/colorHeadline"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvPublishedDate"
-            android:layout_below="@id/tvNewsDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/tvNewsDescription"
             android:layout_gravity="bottom|center"
             android:fontFamily="@font/clear_sans_regular"
             android:paddingLeft="8dp"
