@@ -57,7 +57,7 @@ class NewsHeadlinesAdapter(private val context: Context, private val newsHealine
     @SuppressLint("SimpleDateFormat")
     private fun getDayFromDate(date: String): String {
         val date = SimpleDateFormat("yyyy-MM-dd").parse(date)
-        return SimpleDateFormat("EEEE").format(date)
+        return SimpleDateFormat("dd-MM-yyyy").format(date)
     }
 
 
