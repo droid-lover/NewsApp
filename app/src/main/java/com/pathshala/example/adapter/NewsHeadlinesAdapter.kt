@@ -11,6 +11,7 @@ import com.google.gson.Gson
 import com.pathshala.example.R
 import com.pathshala.example.models.Articles
 import com.pathshala.example.models.NewsHeadlines
+import com.pathshala.example.utils.Utils
 import kotlinx.android.synthetic.main.item_news_headline.view.*
 import java.text.SimpleDateFormat
 
@@ -20,7 +21,6 @@ import java.text.SimpleDateFormat
  */
 class NewsHeadlinesAdapter(private val context: Context, private val newsHealines: NewsHeadlines) :
     androidx.recyclerview.widget.RecyclerView.Adapter<NewsHeadlinesAdapter.ViewHolder>() {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -47,10 +47,12 @@ class NewsHeadlinesAdapter(private val context: Context, private val newsHealine
         private val ivNewsCover = itemView.ivNewsCover!!
         private val tvNewsDescription = itemView.tvNewsDescription!!
         private val tvPublishedDate = itemView.tvPublishedDate!!
+        private val cvContainer = itemView.cvContainer!!
         fun bindToView(article: Articles) {
             article.urlToImage?.also { ivNewsCover.setImageURI(it) }
             article.description?.also { tvNewsDescription.text = it }
             article.publishedAt?.also { tvPublishedDate.text = getDayFromDate(it) }
+
         }
     }
 
