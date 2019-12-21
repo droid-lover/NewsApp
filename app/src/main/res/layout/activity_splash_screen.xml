@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/containerStyle"
@@ -7,23 +7,26 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:layout_weight="8"
-        android:gravity="center"
+        android:maxWidth="200dp"
+        android:maxHeight="200dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/ic_news_logo" />
+        app:lottie_rawRes="@raw/ic_news" />
 
     <TextView
         android:id="@+id/tvAppName"
         style="@style/textStyle"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/lottieAnimView"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/clear_sans_bold"
         android:text="@string/app_name"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-         />
-</LinearLayout>
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+</RelativeLayout>

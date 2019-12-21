@@ -8,11 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.pathshala.example.R
 import com.pathshala.example.models.NewsHeadlines
 import com.pathshala.example.viewmodels.NewsViewModel
 import com.assignment.rxjavakotlinway.utils.Result
+import com.pathshala.example.adapter.NewsHeadlinesAdapter
+import com.pathshala.example.utils.ItemOffsetDecoration
+import kotlinx.android.synthetic.main.fragment_news.*
 
 class NewsFragment : Fragment() {
 
@@ -36,12 +40,24 @@ class NewsFragment : Fragment() {
             when (it) {
                 is Result.Success<NewsHeadlines> -> {
                     Log.d("ComingHere", "InsideApiSuccess ${Gson().toJson(it.data)}")
+                    setNews(it.data)
                 }
                 is Result.Failure -> {
                     Log.d("ComingHere", "InsideApiFailure ${it.throwable.localizedMessage}")
                 }
             }
         })
+    }
+
+    private fun setNews(data: NewsHeadlines) {
+        val spacing = resources.getDimensionPixelOffset(R.dimen.default_spacing_small)
+        rvNewsHeadlines.apply {
+            visibility = View.VISIBLE
+            adapter = NewsHeadlinesAdapter(activity!!, data)
+            layoutManager = LinearLayoutManager(activity!!)
+            addItemDecoration(ItemOffsetDecoration(spacing))
+        }
+        rvNewsHeadlines.startLayoutAnimation()
     }
 
 }

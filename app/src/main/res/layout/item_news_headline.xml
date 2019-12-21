@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="260dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/ivNewsCover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxHeight="180dp"
+            fresco:actualImageScaleType="centerInside"
+            fresco:failureImage="@drawable/ic_placeholder"
+            fresco:failureImageScaleType="centerInside"
+            fresco:placeholderImage="@drawable/ic_placeholder"
+            fresco:placeholderImageScaleType="fitXY" />
+
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:id="@+id/tvNewsDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:fontFamily="@font/clear_sans_regular"
+            android:padding="8dp"
+            android:hint="The magazine, founded by Billy Graham, has only a small following among Christian voters."
+            android:textColor="@color/colorHeadline"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvPublishedDate"
+            android:layout_below="@id/tvNewsDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:fontFamily="@font/clear_sans_regular"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp"
+            android:textColor="@color/colorHeadline"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
